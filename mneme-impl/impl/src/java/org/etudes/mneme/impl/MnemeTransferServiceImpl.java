@@ -736,18 +736,20 @@ public class MnemeTransferServiceImpl implements MnemeTransferService, EntityTra
 	/**
 	 * {@inheritDoc}
 	 */
-	public void transferCopyEntities(String fromContext, String toContext, List ids)
+	public Map<String, String> transferCopyEntities(String fromContext, String toContext, List<String> ids, List<String> transferOptions)
 	{
 		importFromSite(fromContext, toContext, null);
+		return null;
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public void transferCopyEntities(String fromContext, String toContext, List ids, boolean cleanup)
+	public Map<String, String> transferCopyEntities(String fromContext, String toContext, List<String> ids, List<String> transferOptions, boolean cleanup)
 	{
 		// TODO: implement cleanup?
 		importFromSite(fromContext, toContext, null);
+		return null;
 	}
 
 	/**
