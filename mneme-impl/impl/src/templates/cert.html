@@ -20,6 +20,11 @@ a.toolUiLink:focus
 	text-decoration: none !important;
 }
 -->
+.certificate {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
 .certimg {
     position: absolute;
 }
@@ -29,11 +34,17 @@ a.toolUiLink:focus
         </style>
 
         <script language="JavaScript" type="text/JavaScript">
-<!--
+/*
 function closeWindow() {
     self.close();
     }
-//-->
+*/
+
+function printCert(parentNode) {
+    parentNode.style.display = 'none';
+    window.print();
+    parentNode.style.display = 'block';
+}
         </script>
 
 
@@ -56,38 +67,40 @@ function closeWindow() {
 
 <body>
               <div class="noprint">
-                <a href="#" onclick="javascript:window.print()" class="toolUiLink">
+                <a href="#" onclick="javascript:printCert(this.parentNode);" class="toolUiLink">
 				 <img src="printer.png" alt="" width="16" height="16" border="0" align="absmiddle">
 				 Send to Printer</a>
 				 | <a class="toolUiLink" value="" href="" onClick="window.close();" >Close Window</a>
 				</div>
-    <img class="certimg" src="certificate2.png" />
-    <table class="certtable" border="0" align="center" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="808" height="202">
-      <tr>
-        <td width="808" height="291" colspan="4">&nbsp;</td>
-      </tr>
-      <tr>
-        <td width="808" height="77" colspan="4">
-        <p align="center"><i>This certificate is awarded to</i></p>
-        <p align="center"><b><font size="6">student.name</font></b></td>
-      </tr>
-      <tr>
-        <td width="808" height="73" colspan="4">
-        <p align="center"><i>for achieving</i></p>
-        <p align="center"><b><font size="4">student.score </b>out<b> </b>of<b> test.points </b>
-        </font><font size="2"><b>in</b></font></p>
-        <p align="center"><b><font size="2">test.title</font></b></td>
-      </tr>
-      <tr>
-        <td width="99" height="73">&nbsp;<p align="left">&nbsp;</td>
-        <td height="73" width="441" nowrap>Course: course.title
-        </td>
-        <td height="73" width="154">Date: today.date</td>
-        <td width="114" height="73">&nbsp;</td>
-      </tr>
-      <tr>
-        <td width="808" height="113" colspan="4">&nbsp;</td>
-      </tr>
-    </table>
+    <div class="certificate">
+        <img class="certimg" src="certificate2.png" />
+        <table class="certtable" border="0" align="center" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="808" height="202">
+          <tr>
+            <td width="808" height="291" colspan="4">&nbsp;</td>
+          </tr>
+          <tr>
+            <td width="808" height="77" colspan="4">
+            <p align="center"><i>This certificate is awarded to</i></p>
+            <p align="center"><b><font size="6">student.name</font></b></td>
+          </tr>
+          <tr>
+            <td width="808" height="73" colspan="4">
+            <p align="center"><i>for achieving</i></p>
+            <p align="center"><b><font size="4">student.score </b>out<b> </b>of<b> test.points </b>
+            </font><font size="2"><b>in</b></font></p>
+            <p align="center"><b><font size="2">test.title</font></b></td>
+          </tr>
+          <tr>
+            <td width="99" height="73">&nbsp;<p align="left">&nbsp;</td>
+            <td height="73" width="441" nowrap>Course: course.title
+            </td>
+            <td height="73" width="154">Date: today.date</td>
+            <td width="114" height="73">&nbsp;</td>
+          </tr>
+          <tr>
+            <td width="808" height="113" colspan="4">&nbsp;</td>
+          </tr>
+        </table>
+    </div>
 </body>
 </html>
