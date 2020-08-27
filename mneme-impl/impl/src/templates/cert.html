@@ -1,106 +1,77 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-		<meta http-equiv="Content-Language" content="en-us">
-		<link href="tool_base.css" type="text/css" rel="stylesheet" media="all"/>
-		<link href="tool.css" type="text/css" rel="stylesheet" media="all"/>
-<title>Sample Etudes Certificate </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="Content-Language" content="en-us">
+    <!-- <link href="tool_base.css" type="text/css" rel="stylesheet" media="all"/> -->
+    <!-- <link href="tool.css" type="text/css" rel="stylesheet" media="all"/> -->
+<title>Certificate of Achievement</title>
 <meta name="description" content="Etudes is a community that supports development of open source (OS) tools for its platform, Etudes and the Sakai OS software. Additionally, the Etudes Project provides centralized hosting, administration of sites and accounts, training and staff development, and user support to its members.">
 <meta name="keywords" content="Etudes, Etudes consortium, Etudes Learning Management System, Course Management System, , Etudes Alliance, California Community Colleges, Sakai, open source software development for Sakai, centralized hosting, faculty support services, training, cyber teachers institute, pedagogy, tools, online teaching and learning, CMS, CLE, Etudes Alliance">
 <style>
-<!--
-a.toolUiLink:link,
-a.toolUiLink:visited,
-a.toolUiLink:hover,
-a.toolUiLink:active,
-a.toolUiLink:focus
-{
-	color: #6066AC !important;
-	text-decoration: none !important;
+.noprint {
+    margin-bottom: 20px;
 }
--->
-.certificate {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+#canvas {
+    display: block;
+    margin: auto;
 }
-.certimg {
-    position: absolute;
-}
-.certtable {
-    position: absolute;
-}
-        </style>
+</style>
 
-        <script language="JavaScript" type="text/JavaScript">
-/*
-function closeWindow() {
-    self.close();
+<script language="JavaScript" type="text/JavaScript">
+    document.addEventListener("DOMContentLoaded", function(event) {
+
+        var awardedto = "This certificate is awarded to";
+        var studentname = "student.name";
+        var forachieving = "for achieving";
+        var studentscore = "student.score out of test.points in";
+        var testtitle = "test.title";
+        var coursetitle = "Course: course.title";
+        var todaydate = "Date: today.date";
+
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+        var imageObj = new Image();
+        imageObj.onload = function(){
+            context.drawImage(imageObj, 0, 0);
+            context.textAlign = "center";
+            context.fillStyle = "#000000";
+            context.font = "italic 12pt Times";
+            context.fillText(awardedto, canvas.width / 2, 310);
+            context.font = "bold 25pt Times";
+            context.fillText(studentname, canvas.width / 2, 350);
+            context.font = "italic 12pt Times";
+            context.fillText(forachieving, canvas.width / 2, 380);
+            context.font = "18pt Times";
+            context.fillText(studentscore, canvas.width / 2, 420);
+            context.font = "bold 16pt Times";
+            context.fillText(testtitle, canvas.width / 2, 460);
+            context.font = "12pt Times";
+            context.textAlign = "left";
+            context.fillText(coursetitle, 120 , 510);
+            context.font = "12pt Times";
+            context.textAlign = "center";
+            context.fillText(todaydate, 620, 510);
+        };
+        imageObj.src = "certificate2.png";
+    });
+
+    function printCert(parentNode) {
+        parentNode.style.display = 'none';
+        window.print();
+        parentNode.style.display = 'block';
     }
-*/
+</script>
 
-function printCert(parentNode) {
-    parentNode.style.display = 'none';
-    window.print();
-    parentNode.style.display = 'block';
-}
-        </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <!--mstheme--><link rel="stylesheet" type="text/css" href="../_themes/twc-table222/twc-1011-109.css"><meta name="Microsoft Theme" content="twc-table222 1011, default">
 </head>
 
 <body>
-              <div class="noprint">
-                <a href="#" onclick="javascript:printCert(this.parentNode);" class="toolUiLink">
-				 <img src="printer.png" alt="" width="16" height="16" border="0" align="absmiddle">
-				 Send to Printer</a>
-				 | <a class="toolUiLink" value="" href="" onClick="window.close();" >Close Window</a>
-				</div>
-    <div class="certificate">
-        <img class="certimg" src="certificate2.png" />
-        <table class="certtable" border="0" align="center" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="808" height="202">
-          <tr>
-            <td width="808" height="291" colspan="4">&nbsp;</td>
-          </tr>
-          <tr>
-            <td width="808" height="77" colspan="4">
-            <p align="center"><i>This certificate is awarded to</i></p>
-            <p align="center"><b><font size="6">student.name</font></b></td>
-          </tr>
-          <tr>
-            <td width="808" height="73" colspan="4">
-            <p align="center"><i>for achieving</i></p>
-            <p align="center"><b><font size="4">student.score </b>out<b> </b>of<b> test.points </b>
-            </font><font size="2"><b>in</b></font></p>
-            <p align="center"><b><font size="2">test.title</font></b></td>
-          </tr>
-          <tr>
-            <td width="99" height="73">&nbsp;<p align="left">&nbsp;</td>
-            <td height="73" width="441" nowrap>Course: course.title
-            </td>
-            <td height="73" width="154">Date: today.date</td>
-            <td width="114" height="73">&nbsp;</td>
-          </tr>
-          <tr>
-            <td width="808" height="113" colspan="4">&nbsp;</td>
-          </tr>
-        </table>
+    <div class="noprint">
+        <a id='downloadlink' href="" onclick="javascript:printCert(this.parentNode);" class="toolUiLink">
+            <img src="printer.png" alt="" width="16" height="16" border="0" align="absmiddle">
+            Send to Printer</a>
+        | <a class="toolUiLink" value="" href="" onClick="window.close();" >Close Window</a>
     </div>
+    <canvas id='canvas' width="797" height="618"></canvas>
 </body>
 </html>
